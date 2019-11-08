@@ -131,6 +131,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\old-wood.jpg" />
+    <Content Include="Content\Images\wild-spirit-logo.png" />
+    <Content Include="Content\Images\wild-spirit.jpg" />
+    <Content Include="Content\mynavbar.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
