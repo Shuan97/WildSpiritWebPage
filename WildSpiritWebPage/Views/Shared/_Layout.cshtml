@@ -1,87 +1,71 @@
-﻿<!DOCTYPE html>
+﻿@using System.Activities
+<!DOCTYPE html>
 <html lang="pl-PL">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title | WildSpirit</title>
-    @Styles.Render("~/Content/css")
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700,900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" rel="stylesheet">
     <script src="https://kit.fontawesome.com/db0964e2d9.js" crossorigin="anonymous"></script>
-
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/mynavbar.css" rel="stylesheet"/>
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     <script type="text/javascript">
         $(window).on('scroll', function () {
             if ($(window).scrollTop()) {
-                $('nav').addClass('black');
+                $('header').addClass('black');
             } else {
-                $('nav').removeClass('black');
+                $('header').removeClass('black');
             }
         })
     </script>
 </head>
 <body>
-<div class="wrapper">
+<header>
+    <a href="#">
+        <div class="logo">
+            <img src="~/Content/Images/wild-spirit-logo.png" alt="LOGO"/>
+        </div>
+    </a>
+    <div class="menu-toggle"></div>
     <nav>
-        <div>
-            <div class="logo">
-                <img src="~/Content/Images/wild-spirit-logo.png" alt="LOGO"/>
-            </div>
-            <div>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a class="active" href="#">LogIn</a></li>
-                </ul>
-            </div>
-        </div>
+        <ul>
+            <li><a href="#start">Start</a></li>
+            <li><a href="#o_nas">O nas</a></li>
+            <li><a href="#produkty">Produkty</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="#">LogIn</a></li>
+        </ul>
     </nav>
-    <section class="sec1"></section>
-    <section class="content">
-        <p>Lorem Ipsum jest tekstem stosowanym jako przykładowy
-            wypełniacz w przemyśle poligraficznym. Został po raz
-            pierwszy użyty w XV w. przez nieznanego drukarza do
-            wypełnienia tekstem próbnej książki. Pięć wieków później
-            zaczął być używany przemyśle elektronicznym, pozostając
-            praktycznie niezmienionym. Spopularyzował się w latach 60. XX w.
-            wraz z publikacją arkuszy Letrasetu, zawierających fragmenty
-            Lorem Ipsum, a ostatnio z zawierającym różne wersje Lorem Ipsum
-            oprogramowaniem przeznaczonym do realizacji druków na komputerach
-            osobistych, jak Aldus PageMaker</p>
-    </section>
-</div>
-@*<div class="my-navbar">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("WildSpirit", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("O nas", "About", "Home")</li>
-                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</div>*@
+    <div class="clearfix"></div>
+</header>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.menu-toggle').click(function() {
+            $('.menu-toggle').toggleClass('active');
+            $('nav').toggleClass('active');
+        });
+            
+        $('li').click(function () {
+            $('.menu-toggle').toggleClass('active');
+            $('nav').toggleClass('active');
+        });
+    })
+</script>
 
-<div class="container body-content">
+<div>
     @RenderBody()
     <hr/>
-    <footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    <footer class="section-footer">
+        <p>@DateTime.Now.Year - Copy rights &copy;. All rights reserved.</p>
     </footer>
 </div>
 
+<section id="halo"></section>
 
 @Scripts.Render("~/bundles/bootstrap")
 @RenderSection("scripts", required: false)
